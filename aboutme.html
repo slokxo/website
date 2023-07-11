@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #B0E2FF;
+      font-family: Arial, sans-serif;
+    }
+
+    #banner {
+      background-color: #336699;
+      padding: 10px;
+      text-align: center;
+    }
+
+    #banner h1 {
+      font-family: "Pacifico", cursive;
+      color: #FFFFFF;
+      font-size: 48px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      margin: 0;
+    }
+
+    #container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 140vh;
+      padding: 50px;
+      box-sizing: border-box; 
+    }
+
+    #navigation {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+    }
+
+    #navigation a {
+      color: #FF6600;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 18px;
+      transition: color 0.3s ease;
+      margin-right: 10px;
+    }
+
+    #navigation a:hover {
+      text-decoration: underline;
+    }
+
+    .images-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: -900px;
+    }
+
+    .image-item {
+      margin: 10px;
+      width: 60px;
+      height: 60px;
+      transition: transform 0.3s ease, width 0.3s ease, height 0.3s ease;
+    }
+
+    .image-item:hover {
+      transform: scale(1.2);
+      width: 72px;
+      height: 72px;
+    }
+
+    @keyframes float {
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+    
+    .info-container {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+      text-align: left;
+      max-width: 600px;
+
+      width: 100%;
+    }
+    
+    .info-container h2 {
+      font-size: 24px;
+      margin-top: 0;
+    }
+    
+    .info-container p {
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+  <div id="navigation">
+    <a href="aboutme.html">About Me</a>
+    <a href="index.html">Home</a>
+  </div>
+  <div id="banner">
+    <h1 style="font-family: 'Pacifico', cursive; color: #cc3a0e; font-size: 60px;">About Me</h1>
+  </div>
+  <div id="container">
+    <div class="images-container">
+      <a href="https://github.com/slokxo" target="_blank">
+        <img src="images/github.png" alt="GitHub Icon" class="image-item">
+      </a>
+      <a href="https://open.spotify.com/user/31vjxnrd2s24wgte6m3mdifredqy?si=a433f2d143c94faf" target="_blank">
+        <img src="images/spotifyaccount.png" alt="Spotify Account Icon" class="image-item">
+      </a>
+      <a href="https://discord.com/users/958159590657228831" target="_blank">
+        <img src="images/discord.png" alt="Discord Icon" class="image-item">
+      </a>
+      <a href="https://laby.net/@slokxoxo" target="_blank">
+        <img src="images/logo.png" alt="LabyMod Icon" class="image-item">
+      </a>
+      <a href="https://open.spotify.com/embed/track/5GbVzc6Ex5LYlLJqzRQhuy" target="_blank">
+        <img src="images/spotify.png" alt="Spotify Icon" class="image-item">
+      </a>
+    </div>
+    <div class="info-container">
+      <h2>About Me</h2>
+      <p>Hello, I'm slokx! Here are some details about me:</p>
+      <ul>
+        <li>MBTI: ENTJ</li>
+        <li>Enneagram: 7w6</li>
+        <li>Zodiac Sign: Sagittarius</li>
+        <li>Hobbies: Coding, music, gaming, sports</li>
+        <li>Location: <img src="images/irishflag.png" alt="IrishFlag Icon" width="16" height="16"></li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>

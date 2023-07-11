@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #B0E2FF;
+      font-family: Arial, sans-serif;
+    }
+
+    #banner {
+      background-color: #336699;
+      padding: 10px;
+      text-align: center;
+    }
+
+    #banner h1 {
+      font-family: "Pacifico", cursive;
+      color: #FFFFFF;
+      font-size: 48px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      margin: 0;
+    }
+
+    #container {
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      height: 100vh;
+      padding: 50px;
+    }
+
+    #image {
+      margin-right: 50px;
+      margin-top: -20px;
+    }
+
+    #text {
+      max-width: 800px;
+    }
+
+    h2 {
+      font-family: "Comic Sans MS", cursive;
+      color: #336699;
+      text-align: center;
+      font-size: 32px;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-family: "Verdana", sans-serif;
+      color: #555555;
+      text-align: justify;
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+
+    #navigation {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+    }
+
+    #navigation a {
+      color: #FF6600;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 18px;
+      transition: color 0.3s ease;
+      margin-right: 10px;
+    }
+
+    #navigation a:hover {
+      text-decoration: underline;
+    }
+
+    .like-button {
+      cursor: pointer;
+      display: inline-block;
+      position: relative;
+    }
+
+    .heart-icon {
+      font-size: 24px;
+      color: #ff69b4;
+    }
+
+    .heart-icon::before {
+      content: "\2661";
+    }
+
+    .like-button.liked .heart-icon::before {
+      content: "\2665";
+    }
+
+    .like-counter {
+      margin-left: 5px;
+      vertical-align: middle;
+      font-size: 16px;
+    }
+
+    #views-counter {
+      position: fixed;
+      bottom: 10px;
+      right: 10px;
+      font-size: 14px;
+      color: #888888;
+    }
+  </style>
+</head>
+<body>
+  <div id="navigation">
+    <a href="aboutme.html">About me</a>
+    <a href="index.html">Home</a>
+  </div>
+  <div id="banner">
+    <h1 style="font-family: 'Pacifico', cursive; color: #cc3a0e; font-size: 60px;">Introduction</h1>
+  </div>
+  <div id="container">
+    <div id="image">
+      <img src="images/slokx.png" alt="Profile Image" width="200">
+    </div>
+    <div id="text">
+      <h2>Hey, what's up? Hello! 👋</h2>
+      <p>Welcome to my website! I'm slokx, also known as <strong>slokxoxo</strong>. I am a passionate developer currently learning <strong>Java</strong> and <strong>HTML</strong>. My goal is to get good in these languages and create cool things.</p>
+      <p>Java, a versatile and powerful programming language, has taught me how to develop <a href="https://www.spigotmc.org/">Spigot API</a> plugins and <a href="https://projectkorra.com/">ProjectKorra</a> abilities/packs. I also dabble in JDA (Java Discord API). HTML, the backbone of web development, has allowed me to bring my ideas to life.</p>
+      <p>With my knowledge and dedication, I strive to become a skilled developer, creating innovative solutions and contributing to the digital world with new technologies.</p>
+      <p>If you'd like to get in touch with me or learn more about me, feel free to <a href="contact.html">Contact me</a>. To discover more about me, visit the <a href="aboutme.html">About me</a> page.</p>
+      <p>Thank you for visiting, and I look forward to connecting with you!</p>
+      <p>You can contact me on Discord at <a href="https://discord.com/users/958159590657228831"><code>@slokx</code></a> <img src="images/discord.png" alt="Discord Icon" width="16" height="16"></p>
+      <div class="like-button" onclick="toggleLike(this)">
+        <span class="heart-icon"></span>
+        <span class="like-counter">0</span>
+      </div>
+    </div>
+  </div>
+
+  <div id="views-counter">Total Views: <span id="views-count">0</span></div>
+
+  <script>
+    var viewsCount = localStorage.getItem("viewsCount") || 0;
+
+    var viewsCountElement = document.getElementById("views-count");
+    viewsCountElement.textContent = viewsCount;
+
+    function incrementViewCount() {
+      viewsCount++;
+      localStorage.setItem("viewsCount", viewsCount);
+      viewsCountElement.textContent = viewsCount;
+    }
+
+    incrementViewCount();
+
+    function toggleLike(button) {
+      button.classList.toggle("liked");
+      var likeCounter = button.querySelector(".like-counter");
+      var likeCount = parseInt(likeCounter.textContent);
+
+      if (button.classList.contains("liked")) {
+        likeCount++;
+      } else {
+        likeCount = Math.max(0, likeCount - 1);
+      }
+
+      likeCounter.textContent = likeCount;
+
+      var liked = button.classList.contains("liked");
+      localStorage.setItem("liked", liked);
+      localStorage.setItem("likeCount", likeCount);
+    }
+
+    var liked = localStorage.getItem("liked");
+    var likeCount = localStorage.getItem("likeCount");
+    var likeButton = document.querySelector(".like-button");
+
+    if (liked === "true") {
+      likeButton.classList.add("liked");
+    }
+
+    if (likeCount) {
+      var likeCounter = likeButton.querySelector(".like-counter");
+      likeCounter.textContent = likeCount;
+    }
+  </script>
+</body>
+</html>
